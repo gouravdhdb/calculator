@@ -9,30 +9,35 @@ function addToDisplay(value) {
 
 function operate(operator) {
     if (currentInput === '') return;
-    if (lastOperator) calculateTotal();
-
-    total = parseFloat(currentInput);
+    
+    // Add the current number to the total
+    calculateTotal();
+    
+    // Store the operator for the next calculation
     lastOperator = operator;
     currentInput = '';
 }
 
 function calculateTotal() {
-    if (currentInput === '') return;
     let currentNumber = parseFloat(currentInput);
+    
     if (isNaN(currentNumber)) return;
 
-    switch (lastOperator) {
-        case '+': total += currentNumber; break;
-        case '-': total -= currentNumber; break;
-        case '*': total *= currentNumber; break;
-        case '/': total /= currentNumber; break;
-        default: total = currentNumber;
+    if (lastOperator === '+') {
+        total += currentNumber;
+    } else if (lastOperator === '-') {
+        total -= currentNumber;
+    } else if (lastOperator === '*') {
+        total *= currentNumber;
+    } else if (lastOperator === '/') {
+        total /= currentNumber;
+    } else {
+        total = currentNumber; // For the first input without any operator
     }
-
+    
     document.getElementById('total').innerText = total;
     document.getElementById('input').value = '';
     currentInput = '';
-    lastOperator = '';
 }
 
 function clearDisplay() {
