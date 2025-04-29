@@ -9,11 +9,8 @@ function addToDisplay(value) {
 
 function operate(operator) {
     if (currentInput === '') return;
+    if (lastOperator) calculateTotal();
 
-    if (lastOperator) {
-        calculateTotal();
-    }
-    
     total = parseFloat(currentInput);
     lastOperator = operator;
     currentInput = '';
@@ -21,28 +18,32 @@ function operate(operator) {
 
 function calculateTotal() {
     if (currentInput === '') return;
-    
     let currentNumber = parseFloat(currentInput);
-    if (lastOperator === '+') {
-        total += currentNumber;
-    } else if (lastOperator === '-') {
-        total -= currentNumber;
-    } else if (lastOperator === '*') {
-        total *= currentNumber;
-    } else if (lastOperator === '/') {
-        total /= currentNumber;
+    if (isNaN(currentNumber)) return;
+
+    switch (lastOperator) {
+        case '+': total += currentNumber; break;
+        case '-': total -= currentNumber; break;
+        case '*': total *= currentNumber; break;
+        case '/': total /= currentNumber; break;
+        default: total = currentNumber;
     }
 
     document.getElementById('total').innerText = total;
+    document.getElementById('input').value = '';
     currentInput = '';
     lastOperator = '';
-    document.getElementById('input').value = '';
 }
 
 function clearDisplay() {
     currentInput = '';
-    document.getElementById('input').value = '';
-    lastOperator = '';
     total = 0;
-    document.getElementById('total').innerText = total;
+    lastOperator = '';
+    document.getElementById('input').value = '';
+    document.getElementById('total').innerText = '0';
+}
+
+function backspace() {
+    currentInput = currentInput.slice(0, -1);
+    document.getElementById('input').value = currentInput;
 }
