@@ -3,33 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabric Calculator</title>
+    <title>GOURAV's Fabric Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <h1>Fabric Calculator</h1>
-        <div class="display">
-            <input type="text" id="input" readonly />
-            <p>Total: <span id="total">0</span></p>
-        </div>
-        <div class="buttons">
-            <button onclick="addToDisplay(1)">1</button>
-            <button onclick="addToDisplay(2)">2</button>
-            <button onclick="addToDisplay(3)">3</button>
-            <button onclick="operate('+')">+</button>
-            <button onclick="addToDisplay(4)">4</button>
-            <button onclick="addToDisplay(5)">5</button>
-            <button onclick="addToDisplay(6)">6</button>
-            <button onclick="operate('-')">-</button>
-            <button onclick="addToDisplay(7)">7</button>
-            <button onclick="addToDisplay(8)">8</button>
-            <button onclick="addToDisplay(9)">9</button>
-            <button onclick="operate('*')">*</button>
-            <button onclick="addToDisplay(0)">0</button>
-            <button onclick="clearDisplay()">C</button>
-            <button onclick="calculateTotal()">=</button>
-            <button onclick="operate('/')">/</button>
+    <div class="container">
+        <h1>GOURAV's Fabric Calculator</h1>
+        <div class="calculator">
+            <input type="text" id="input" placeholder="Enter calculation" readonly>
+            <div class="total-display">Total: <span id="total">0</span></div>
+            <div class="button-grid">
+                <!-- Number buttons -->
+                <button onclick="addToDisplay('7')">7</button>
+                <button onclick="addToDisplay('8')">8</button>
+                <button onclick="addToDisplay('9')">9</button>
+                <button onclick="operate('/')">÷</button>
+
+                <button onclick="addToDisplay('4')">4</button>
+                <button onclick="addToDisplay('5')">5</button>
+                <button onclick="addToDisplay('6')">6</button>
+                <button onclick="operate('*')">×</button>
+
+                <button onclick="addToDisplay('1')">1</button>
+                <button onclick="addToDisplay('2')">2</button>
+                <button onclick="addToDisplay('3')">3</button>
+                <button onclick="operate('-')">−</button>
+
+                <button onclick="addToDisplay('0')">0</button>
+                <button onclick="backspace()">⌫</button>
+                <button onclick="calculateTotal()">=</button>
+                <button onclick="operate('+')">+</button>
+
+                <button class="clear" onclick="clearDisplay()">Clear</button>
+            </div>
         </div>
     </div>
 
