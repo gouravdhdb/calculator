@@ -24,6 +24,7 @@ function calculateTotal() {
     
     if (isNaN(currentNumber)) return;
 
+    // Perform the operation
     if (lastOperator === '+') {
         total += currentNumber;
     } else if (lastOperator === '-') {
@@ -36,10 +37,16 @@ function calculateTotal() {
         total = currentNumber; // For the first input without any operator
     }
 
-    // Update history with current operation
-    history.push(`${currentInput} ${lastOperator} = ${total}`);
+    // Add the full calculation to history (including the operator and result)
+    if (lastOperator) {
+        history.push(`${history[history.length - 1]} ${currentInput} = ${total}`);
+    } else {
+        history.push(`${currentInput} = ${total}`);
+    }
+
     updateHistoryDisplay();
 
+    // Update the total and reset the input
     document.getElementById('total').innerText = total;
     document.getElementById('input').value = '';
     currentInput = '';
