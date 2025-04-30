@@ -10,8 +10,8 @@
     <div class="container">
         <h1>GOURAV's Calculator</h1>
         <div class="calculator">
-            <input type="text" id="input" placeholder="Enter calculation" readonly>
-            <div class="total-display">Total: <span id="total">0</span></div>
+            <input type="text" id="input" readonly>
+<div id="total">0</div>
             <div class="button-grid">
                 <!-- Number buttons -->
                 <button onclick="addToDisplay('7')">7</button>
@@ -35,6 +35,9 @@
                 <button onclick="operate('+')">+</button>
 
                 <button class="clear" onclick="clearDisplay()">Clear</button>
+
+                <div id="history" style="margin-top: 20px; font-size: 14px; color: #888;"></div>
+
             </div>
         </div>
     </div>
