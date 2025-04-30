@@ -11,7 +11,7 @@
         <h1>GOURAV's Calculator</h1>
         <div class="calculator">
             <input type="text" id="input" readonly>
-<div id="total">0</div>
+            <div id="total">0</div>
             <div class="button-grid">
                 <!-- Number buttons -->
                 <button onclick="addToDisplay('7')">7</button>
@@ -31,13 +31,15 @@
 
                 <button onclick="addToDisplay('0')">0</button>
                 <button onclick="backspace()">⌫</button>
-                <button onclick="calculateTotal()">=</button>
+                <!-- Swapped: Clear is now here -->
+                <button onclick="clearDisplay()">Clear</button>
                 <button onclick="operate('+')">+</button>
 
-                <button class="clear" onclick="clearDisplay()">Clear</button>
+                <!-- Equals moved down here -->
+                <button class="equals" onclick="calculateTotal()">=</button>
 
+                <!-- History display -->
                 <div id="history" style="margin-top: 20px; font-size: 14px; color: #888;"></div>
-
             </div>
         </div>
     </div>
