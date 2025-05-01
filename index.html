@@ -35,42 +35,12 @@
                 <button onclick="clearDisplay()">Clear</button>
                 <button onclick="operate('+')">+</button>
 
-                <!-- Equals moved down here -->
-                <button class="equals" onclick="calculateTotal()">=</button>
 
                 <!-- History display -->
                 <div id="history" style="margin-top: 20px; font-size: 14px; color: #888;"></div>
             </div>
         </div>
     </div>
-<script>
-  const form = document.getElementById("join-form");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value
-    };
-
-    // Replace this with your Web App URL
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzOgsj2RbRZI5m0mXKjKUKH-3wcnRzOjXRHsJIWoIZc5pdhhsr4eodaRyJNnTsgCl8/exec";
-
-    try {
-      await fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(formData)
-      });
-      alert("Form submitted successfully!");
-      form.reset();
-    } catch (error) {
-      alert("Something went wrong!");
-      console.error("Error!", error.message);
-    }
-  });
-</script>
 
     <script src="app.js"></script>
 </body>
